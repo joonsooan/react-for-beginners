@@ -15,17 +15,16 @@
   <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ text, fontSize = 16 }) {
+    function Btn({ text, color }) {
       console.log(text, "was rendered");
       return (
         <button
           style={{
-            backgroundColor: "cornflowerblue",
+            backgroundColor: color,
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize,
           }}
         >
           {text}
@@ -33,14 +32,15 @@
       );
     }
     Btn.propTypes = {
-      text: PropTypes.string.isRequired,
-      fontSize: PropTypes.number.isRequired,
+      text: PropTypes.string,
+      color: PropTypes.string,
     };
     const App = () => {
       return (
         <div>
-          <Btn text="Save Changes" fontSize={20} />
-          <Btn text={"continue"} />
+          <Btn text="tomato" color="tomato" />
+          <Btn text="cornflowerblue" color="cornflowerblue" />
+          <Btn text="lightgreen" color="lightgreen" />
         </div>
       );
     };
